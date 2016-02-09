@@ -5,6 +5,19 @@ use PhpConsole\Handler;
 use PhpConsole\Connector;
 use PhpConsole\Helper;
 
+/*
+ * Fix for lumen framework
+ * Note: config_path() is not a function in lumen
+ */
+
+if (false == function_exists('config_path()'))
+{
+    function config_path()
+    {
+
+    }
+}
+
 class ServiceProvider extends \Illuminate\Support\ServiceProvider {
 
     const PACKAGE_ALIAS = 'php-console';
